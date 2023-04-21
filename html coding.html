@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loan Approval Form</title>
+</head>
+<body>
+  <h1>Personal Loan Approval</h1>
+  <form id="loanForm">
+    <label for="income">Income:</label>
+    <input type="text" id="income" name="income" required>
+    <br>
+    <label for="creditScore">Credit Score:</label>
+    <select id="creditScore" name="creditScore" required>
+      <option value="">-- Select --</option>
+      <option value="excellent">Excellent</option>
+      <option value="good">Good</option>
+      <option value="fair">Fair</option>
+      <option value="poor">Poor</option>
+    </select>
+    <br>
+    <label for="loanAmount">Loan Amount:</label>
+    <input type="text" id="loanAmount" name="loanAmount" required>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+  <script>
+    document.getElementById('loanForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent form submission
+
+      // Get input values
+      var income = parseFloat(document.getElementById('income').value);
+      var creditScore = document.getElementById('creditScore').value;
+      var loanAmount = parseFloat(document.getElementById('loanAmount').value);
+
+      // Perform loan approval logic (this is a simplified example)
+      var approvalStatus = '';
+      if (income >= 50000 && creditScore === 'excellent' && loanAmount <= 50000) {
+        approvalStatus = 'Approved';
+      } else {
+        approvalStatus = 'Not Approved';
+      }
+
+      // Display result
+      alert('Loan Approval Status: ' + approvalStatus);
+    });
+  </script>
+</body>
+</html>
